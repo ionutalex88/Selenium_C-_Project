@@ -73,7 +73,6 @@
     <Compile Include="pages\LoginPage.cs" />
     <Compile Include="pages\HomePage.cs" />
     <Compile Include="pages\SearchResultsPage.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testData\dataObjects\LoginData.cs" />
     <Compile Include="testData\dataObjects\SocialMediaData.cs" />
