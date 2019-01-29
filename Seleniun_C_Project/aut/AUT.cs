@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Interactions;
+using Seleniun_C_Project.config;
 using Seleniun_C_Project.pages;
 using System;
 using System.Collections.Generic;
@@ -17,15 +19,29 @@ namespace Seleniun_C_Project.aut
         public static IWebDriver driver;
 
         //===============================Constructors===========================
-        public AUT()
+        public AUT(String profile = "Default")
         {
-            driver = new ChromeDriver();
+            Config.LoadProfile(profile);
+            switch (Config.browser)
+            {
+                case "Chrome":
+                    driver = new ChromeDriver();
+                    break;
+                case "Firefox":
+                    driver = new FirefoxDriver();
+                    break;
+                default:
+                    driver = new ChromeDriver();
+                    break;
+            }
         }
 
         //===============================Pages===========================
         public HomePage homePage = new HomePage();
-
-
+        public SearchResultsPage searchResultsPage = new SearchResultsPage();
+        public LoginPage loginPage = new LoginPage();
+        public ArticlePage articlePage = new ArticlePage();
+        public FacebookShareLogin facebookShareLogin = new FacebookShareLogin();
         //===============================Methods=========================
 
         /**

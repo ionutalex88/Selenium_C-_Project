@@ -52,15 +52,37 @@
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="aut\AUT.cs" />
+    <Compile Include="config\Config.cs" />
+    <Compile Include="objectTypes\CheckBox.cs" />
     <Compile Include="objectTypes\Button.cs" />
     <Compile Include="objectTypes\CommonObject.cs" />
+    <Compile Include="objectTypes\Iframe.cs" />
+    <Compile Include="objectTypes\Input.cs" />
+    <Compile Include="objectTypes\Link.cs" />
+    <Compile Include="objectTypes\RadioButton.cs" />
+    <Compile Include="objectTypes\SelectBox.cs" />
+    <Compile Include="objectTypes\Table.cs" />
+    <Compile Include="pages\ArticlePage.cs" />
+    <Compile Include="pages\FacebookShareLogin.cs" />
+    <Compile Include="pages\LoginPage.cs" />
     <Compile Include="pages\HomePage.cs" />
+    <Compile Include="pages\SearchResultsPage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="testData\dataObjects\LoginData.cs" />
+    <Compile Include="testData\dataObjects\SocialMediaData.cs" />
+    <Compile Include="testData\dataTypes\User.cs" />
+    <Compile Include="tests\ShareArticleToFacebook.cs" />
+    <Compile Include="tests\ArticlesSearch.cs" />
     <Compile Include="tests\DummyTest.cs" />
+    <Compile Include="tests\TestLogin.cs" />
+    <Compile Include="tests\TestInvalidLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -71,6 +93,7 @@
       <Link>chromedriver.exe</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="config\config.xml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -80,5 +103,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.11.0\build\NUnit.props'))" />
     <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.12.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.12.0\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.23.0.3\build\Selenium.WebDriver.GeckoDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.GeckoDriver.0.23.0.3\build\Selenium.WebDriver.GeckoDriver.targets'))" />
   </Target>
+  <Import Project="..\packages\Selenium.WebDriver.GeckoDriver.0.23.0.3\build\Selenium.WebDriver.GeckoDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.GeckoDriver.0.23.0.3\build\Selenium.WebDriver.GeckoDriver.targets')" />
 </Project>
